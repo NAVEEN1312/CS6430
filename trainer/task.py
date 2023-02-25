@@ -30,7 +30,11 @@ def main(job_dir, data_path, model_id, weights_path, loss, train_csv, val_csv, b
   batch_size *= 3
   is_full_data = False
   hyperdash_capture_io = True
+  
+  
+  print("step1")
 
+    
   # Setting up Hyperdash
   def get_api_key():
     return hyperdash_key
@@ -48,6 +52,8 @@ def main(job_dir, data_path, model_id, weights_path, loss, train_csv, val_csv, b
     exp.param("loss", loss)
     exp.param("train_csv", train_csv)
     exp.param("val_csv", val_csv)
+    
+    print("step2")
 
   logging.info("Downloading Training Image from path {}".format(data_path))
   downloads_training_images(data_path, is_cropped=("_cropped" in job_dir))
